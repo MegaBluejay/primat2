@@ -26,10 +26,3 @@ def simplex(a, f, basic):
     ans = np.zeros(m - 1)
     ans[basic] = a[:, -1]
     return ans
-
-
-a = np.array([[3, 1, -1, 1, 4], [5, 1, 1, -1, 4]], dtype=float)
-f = np.array([-6, -1, -4, 5], dtype=float)
-basic = np.array([0, 3])
-ans = simplex(a.copy(), f.copy(), basic.copy())
-print(ans)
