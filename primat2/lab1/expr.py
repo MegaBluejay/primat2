@@ -1,5 +1,5 @@
 import numpy as np
-from sympy import Expr, init_printing, pprint, symbols
+from sympy import Expr, init_printing, symbols
 
 from .simplex import simplex
 
@@ -14,7 +14,7 @@ def to_list(expr: Expr, n):
     return list(map(float, coeffs))
 
 
-def solve(n, objective, constraints, basic, direction="min"):
+def solve(ntest, n, objective, constraints, basic, direction="min"):
     f = np.array(to_list(objective, n)[:-1])
     if direction != "min":
         f *= -1
@@ -23,11 +23,4 @@ def solve(n, objective, constraints, basic, direction="min"):
     ans = simplex(a, f, np.array(basic) - 1)
     if ans is None:
         ans = "unbounded"
-    print("Objective:")
-    pprint(objective)
-    print("Constraints: ")
-    for constraint in constraints:
-        pprint(constraint)
-    print("Basic:", basic)
-    print("Solution:", ans)
-    print()
+    print(f"{ntest}: {ans}")
