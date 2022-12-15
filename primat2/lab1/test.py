@@ -1,11 +1,11 @@
-from .expr import solve, x
+from .expr import solve, x1, x2, x3, x4, x5
 
 solve(
     n=4,
-    objective=-6 * x[1] - x[2] - 4 * x[3] + 5 * x[4],
+    objective=-6 * x1 - x2 - 4 * x3 + 5 * x4,
     constraints=[
-        3 * x[1] + x[2] - x[3] + x[4] - 4,
-        5 * x[1] + x[2] + x[3] - x[4] - 4,
+        3 * x1 + x2 - x3 + x4 - 4,
+        5 * x1 + x2 + x3 - x4 - 4,
     ],
-    basic=[0, 3],
+    basic=[1, 4],
 )

@@ -1,13 +1,15 @@
 import numpy as np
-from sympy import Expr, IndexedBase
+from sympy import Expr, init_printing, pprint, symbols
 
 from .simplex import simplex
 
-x = IndexedBase("x")
+init_printing(use_unicode=True)
+
+x1, x2, x3, x4, x5 = _x = symbols([f"x_{i}" for i in range(1, 6)])
 
 
 def to_list(expr: Expr, n):
-    coeffs = [expr.coeff(x[i]) for i in range(1, n + 1)]
+    coeffs = [expr.coeff(_x[i]) for i in range(n)]
     coeffs.append(expr.as_coeff_add()[0])
     return list(map(float, coeffs))
 
@@ -18,8 +20,14 @@ def solve(n, objective, constraints, basic, direction="min"):
         f *= -1
     a = np.array([to_list(constraint, n) for constraint in constraints])
     a[:, -1] *= -1
-    basic = np.array(basic)
-    ans = simplex(a, f, basic)
+    ans = simplex(a, f, np.array(basic) - 1)
     if ans is None:
         ans = "unbounded"
-    print(ans)
+    print("Objective:")
+    pprint(objective)
+    print("Constraints: ")
+    for constraint in constraints:
+        pprint(constraint)
+    print("Basic:", basic)
+    print("Solution:", ans)
+    print()
