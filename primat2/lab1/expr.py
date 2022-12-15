@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.optimize import linprog
 from sympy import Expr, init_printing, symbols
 
 from .simplex import simplex
@@ -21,6 +22,8 @@ def solve(ntest, n, objective, constraints, basic, direction="min"):
     a = np.array([to_list(constraint, n) for constraint in constraints])
     a[:, -1] *= -1
     ans = simplex(a, f, np.array(basic) - 1)
+    correct = linprog(f, A_eq=a[:, :-1], b_eq=a[:, -1]).x
+    ok = ans is not None and np.allclose(ans, correct)
     if ans is None:
         ans = "unbounded"
-    print(f"{ntest}: {ans}")
+    print(f"{ntest} {'OK' if ok else 'wrong'}: {ans}")
