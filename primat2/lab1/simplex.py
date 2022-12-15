@@ -1,8 +1,11 @@
+from itertools import permutations
+
 import numpy as np
 
 
 def simplex(a, f, basic):
     n, m = a.shape
+    basic = np.array(next(p for p in permutations(basic) if all(a[i, j] != 0 for i, j in enumerate(p))))
     for i, j in enumerate(basic):
         a[i] /= a[i, j]
         for k in range(n):
