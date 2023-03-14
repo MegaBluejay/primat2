@@ -50,6 +50,11 @@ def convert(n, objective, constraints, direction):
     return fog, f, a, a_eq, b_eq, a_ub, b_ub
 
 
+def solve1(n, objective, constraints, direction):
+    _fog, f, a, *_rest = convert(n, objective, constraints, direction)
+    return full_simplex(a, f)[:n]
+
+
 def solve(ntest, n, objective, constraints, direction="min"):
     fog, f, a, a_eq, b_eq, a_ub, b_ub = convert(n, objective, constraints, direction)
     ans = full_simplex(a.copy(), f.copy())[:n]
