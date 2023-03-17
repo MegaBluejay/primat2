@@ -1,0 +1,42 @@
+kernel='linear', nu=0.25
+  accuracy=0.4956
+  precision=0.1587719298245614
+  recall=0.3747412008281574
+  f1=0.2230437461491066
+
+kernel='poly', nu=0.25
+  accuracy=0.4992
+  precision=0.27527761542957335
+  recall=0.9751552795031055
+  f1=0.4293527803099362
+
+kernel='rbf', nu=0.25
+  accuracy=0.984
+  precision=1.0
+  recall=0.917184265010352
+  f1=0.9568034557235421
+
+kernel='sigmoid', nu=0.25
+  accuracy=0.4196
+  precision=0.24896265560165975
+  recall=0.9937888198757764
+  f1=0.3981750311074243
+
+kernel='rbf', nu=0.05
+  accuracy=0.9972
+  precision=0.9877049180327869
+  recall=0.9979296066252588
+  f1=0.9927909371781668
+
+kernel='rbf', nu=0.2
+  accuracy=0.9884
+  precision=1.0
+  recall=0.9399585921325052
+  f1=0.9690501600853789
+
+kernel='rbf', nu=0.3
+  accuracy=0.9764
+  precision=1.0
+  recall=0.8778467908902692
+  f1=0.9349503858875413
+

@@ -5,6 +5,12 @@
 (pipenv-activate)
 #+end_src
 
+#+begin_center
+*Лабораторная 2*
+
+Моисеев M33001, Муров M33011
+#+end_center
+
 #+begin_src python :session py :exports none :results silent
 import os
 
@@ -246,47 +252,3 @@ round(sum(strat1[i] * sum(matrix[i][j] * strat2[j] for j in range(3)) for i in r
 
 #+RESULTS:
 : -0.077
-
-* Вариант 8
-
-$x_1 + x_2 \rightarrow \min$
-
-\begin{cases}
-7 x_1 + 2 x_2 \geq 1 \\
-x_1 + 11 x_2 \geq 1 \\
-x_1, x_2 \geq 0
-\end{cases}
-
-Пусть
-
-\begin{cases}
-x_1 = \frac{x}{v} \\
-x_2 = \frac{1 - x}{v}
-\end{cases}
-
-Тогда задачу можно записать как
-
-$v = \frac{1}{x_1 + x_2} \rightarrow max$
-
-\begin{cases}
-7 x + 2 (1 - x) \geq v \\
-x + 11 (1 - x) \geq v \\
-1 \geq x \geq 0
-\end{cases}
-
-Если рассматривать $x$, как вероятность выбора 1м игроком 1й стратегии, а каждую строку как случай чистой стратегии 2го игрока,
-это соответствует матричной игре
-
-#+name: matrix8
-#+attr_latex: :mode inline-math :environment pmatrix
-| 7 |  1 |
-| 2 | 11 |
-
-* Вариант 9
-
-Матрица игры:
-
-| 7 | 2 | 5 | 1 |
-| 2 | 2 | 3 | 4 |
-| 5 | 3 | 4 | 4 |
-| 3 | 2 | 1 | 6 |

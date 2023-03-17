@@ -1,0 +1,106 @@
+#+startup: latexpreview
+#+include: "~/org/header.org"
+
+#+begin_center
+*Лабораторная 4*
+
+Моисеев M33001, Муров M33011
+#+end_center
+
+* Результаты
+
+** a, c
+
+#+include: "res/text" example
+
+** графики
+
+*** linear
+
+#+attr_latex: :scale 0.7
+[[./res/ac_points_linear_0.25.png]]
+
+#+attr_latex: :scale 0.7
+[[./res/ac_surface_linear_0.25.png]]
+
+*** poly
+
+#+attr_latex: :scale 0.7
+[[./res/ac_points_poly_0.25.png]]
+
+#+attr_latex: :scale 0.7
+[[./res/ac_surface_poly_0.25.png]]
+
+*** sigmoid
+
+#+attr_latex: :scale 0.7
+[[./res/ac_points_sigmoid_0.25.png]]
+
+#+attr_latex: :scale 0.7
+[[./res/ac_surface_sigmoid_0.25.png]]
+
+*** rbf 0.25
+
+#+attr_latex: :scale 0.7
+[[./res/ac_points_rbf_0.25.png]]
+
+#+attr_latex: :scale 0.7
+[[./res/ac_surface_rbf_0.25.png]]
+
+*** rbf 0.05
+
+#+attr_latex: :scale 0.7
+[[./res/ac_points_rbf_0.05.png]]
+
+#+attr_latex: :scale 0.7
+[[./res/ac_surface_linear_0.25.png]]
+
+*** rbf 0.2
+
+#+attr_latex: :scale 0.7
+[[./res/ac_points_rbf_0.2.png]]
+
+#+attr_latex: :scale 0.7
+[[./res/ac_surface_rbf_0.2.png]]
+
+*** rbf 0.3
+
+#+attr_latex: :scale 0.7
+[[./res/ac_points_rbf_0.3.png]]
+
+#+attr_latex: :scale 0.7
+[[./res/ac_surface_rbf_0.3.png]]
+
+*** accuracy
+
+#+attr_latex: :scale 0.7
+[[./res/b_accuracy.png]]
+
+*** precision
+
+#+attr_latex: :scale 0.7
+[[./res/b_precision.png]]
+
+*** recall
+
+#+attr_latex: :scale 0.7
+[[./res/b_recall.png]]
+
+*** f1
+
+#+attr_latex: :scale 0.7
+[[./res/b_f1.png]]
+
+* Код
+
+** 1
+
+#+include: "gen.py" src python
+
+** 2
+
+#+include: "metrics.py" src python
+
+** 3
+
+#+include: "test.py" src python

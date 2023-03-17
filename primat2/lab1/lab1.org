@@ -1,0 +1,24 @@
+#+startup: latexpreview
+#+include: "~/org/header.org"
+
+#+begin_src emacs-lisp :session py :exports none :results silent
+(pipenv-activate)
+#+end_src
+
+* Код
+
+** Симплекс метод
+
+#+include: "simplex.py" src python
+
+** Интерфейс для тестов
+
+#+include: "expr.py" src python
+
+** Тесты
+
+#+include: "test.py" src python
+
+* Результаты
+
+#+include: "res" example
